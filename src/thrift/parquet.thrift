@@ -215,6 +215,14 @@ struct BloomFilter{
     4: required BloomFilterStrategy bloomFilterStrategy;
 }
 
+struct Histogram{
+    1: required i64 min;
+    2: required i64 max;
+    3: required i32 bucketCount;
+    4: required binary buckets;
+    5: required binary counters;
+}
+
 /**
  * Statistics per row group and per page
  * All fields are optional.
@@ -228,6 +236,7 @@ struct Statistics {
    /** count of distinct values occurring */
    4: optional i64 distinct_count;
    5: optional BloomFilter bloom_filter;
+   6: optional Histogram histogram;
 }
 
 /**
